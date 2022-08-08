@@ -1,7 +1,13 @@
 ﻿
 namespace ClasseMethodSelados.Entities
 {
-    internal class SavingsAccount : Account
+    /**
+     * 
+     *Aqui estou dizendo que a subClasse SavingsAccount
+     *não vai ter herença
+     *
+     **/
+    /*sealed*/internal class SavingsAccount : Account
     {
         //atributos
         public double InterestRate { get; set; }
@@ -41,7 +47,15 @@ namespace ClasseMethodSelados.Entities
             Balance -= amount;
         }*/
 
-        public override void WithDraw(double amount)
+        /**
+         * 
+         * methdos selados só funciona se o method for sobreposto
+         * como exemplo aqui em baixo.
+         * Estou dizendo que esse method não vai ser sobreposto
+         * em nehuma subclasse depois dessa
+         * 
+         **/
+        public sealed override void WithDraw(double amount)
         {
             base.WithDraw(amount);  //aqui estou chamando o method diretamente na superClasse(Classe mãe), um tipo de reaproveitamento
             Balance -= 2.0;
